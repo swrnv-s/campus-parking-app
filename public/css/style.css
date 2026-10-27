@@ -1,0 +1,354 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@500;600&family=IBM+Plex+Mono:wght@500&display=swap');
+/* Design language: car-park wayfinding. Ink + paper, one signage amber, painted-bay lot view. Radius 2-3px everywhere. */
+:root{--ink:#16191d;--ink2:#474d54;--ink3:#7d838a;--paper:#f2f0ea;--rule:#d6d2c6;--amber:#f2b705;--amber-d:#d9a200;--green:#1e7a4c;--red:#b3261e;--asphalt:#2d3135;
+ --bs-body-font-family:'Barlow',system-ui,sans-serif;--bs-body-bg:var(--paper);--bs-body-color:var(--ink);--bs-border-radius:2px;--bs-border-radius-sm:2px;--bs-border-radius-lg:2px}
+body,.bg-light{background:var(--paper)!important;line-height:1.5}.container{max-width:1100px}
+#title{font:600 2.1rem/1.05 'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.03em;margin:2.4rem 0 1.6rem;padding-bottom:.55rem;border-bottom:3px solid var(--ink)}
+#pane h5{font:600 1.15rem 'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.06em;margin:2.6rem 0 .7rem}
+#pane h6,label{font:600 .72rem 'Barlow',sans-serif;text-transform:uppercase;letter-spacing:.09em;color:var(--ink2);margin-bottom:.3rem}
+small,.text-muted{color:var(--ink3)!important}.empty{color:var(--ink3);margin:.4rem 0 1.2rem}
+/* top bar */
+.topbar{background:var(--ink);color:var(--paper);display:flex;align-items:center;gap:2rem;padding:.65rem 1.5rem;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:.6rem;color:#fff;text-decoration:none;font:600 1.15rem 'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.07em}
+.pmark{background:var(--amber);color:var(--ink);width:1.7rem;height:1.7rem;display:grid;place-items:center;font:700 1.1rem 'Barlow',sans-serif;border-radius:3px;letter-spacing:0}
+.topbar nav{display:flex;flex-wrap:wrap;gap:.1rem}.topbar nav a{color:#c4c0b4;text-decoration:none;padding:.4rem .7rem;font-size:.93rem;border-bottom:2px solid transparent}
+.topbar nav a:hover{color:#fff}.topbar nav a.on{color:#fff;border-bottom-color:var(--amber)}
+.who{margin-left:auto;display:flex;gap:.6rem;align-items:center;font-size:.92rem}.who small{display:block;color:#9a968b!important;text-transform:uppercase;letter-spacing:.09em;font-size:.62rem;line-height:1}
+/* buttons: filled amber = the one action to take; outlined ink = everything else; red = destructive */
+.btn{border-radius:2px;font-weight:600;letter-spacing:.01em;border-width:1.5px;padding:.5rem 1.05rem}.btn-sm{padding:.3rem .75rem;font-size:.85rem}
+.btn-primary,.btn-success{background:var(--amber);border-color:var(--ink);color:var(--ink)}
+.btn-primary:hover,.btn-success:hover,.btn-primary:focus,.btn-success:focus{background:var(--amber-d);border-color:var(--ink);color:var(--ink)}
+.btn-danger{background:var(--red);border-color:var(--red);color:#fff}.btn-danger:hover{background:#8f1d17;border-color:#8f1d17;color:#fff}
+.btn-outline-primary,.btn-outline-secondary,.btn-outline-success,.btn-outline-dark{background:transparent;border-color:var(--ink);color:var(--ink)}
+.btn-outline-primary:hover,.btn-outline-secondary:hover,.btn-outline-success:hover,.btn-outline-dark:hover{background:var(--ink);border-color:var(--ink);color:#fff}
+.btn-outline-danger{background:transparent;border-color:var(--red);color:var(--red)}.btn-outline-danger:hover{background:var(--red);border-color:var(--red);color:#fff}
+.btn-outline-light{background:transparent;border-color:#c4c0b4;color:#f2f0ea}.btn-outline-light:hover{background:#f2f0ea;border-color:#f2f0ea;color:var(--ink)}
+.btn:focus-visible,a:focus-visible,.slot:focus-visible{outline:3px solid var(--amber);outline-offset:2px;box-shadow:none}.btn:disabled,.btn.disabled{opacity:.45;cursor:not-allowed}
+/* inputs */
+.form-control,.form-select{border:1.5px solid #aaa597;border-radius:2px;background-color:#fbfaf7;color:var(--ink)}
+.form-control:focus,.form-select:focus{border-color:var(--ink);box-shadow:0 0 0 3px rgba(242,183,5,.5);background-color:#fff}.form-control:disabled{background:#e7e4da;color:var(--ink3)}
+/* surfaces: no boxes; sections are ruled, not carded */
+.card{background:transparent;border:0;border-top:1px solid var(--ink);border-radius:0;box-shadow:none}.card-body{padding:.8rem 0 .4rem}
+.card.text-center{text-align:left!important}.card.text-center small{text-transform:uppercase;letter-spacing:.08em;font-size:.68rem}.card.text-center b{font:600 1.9rem/1.1 'Barlow Condensed',sans-serif}
+.table{--bs-table-bg:transparent;--bs-table-border-color:var(--rule)}.table.bg-white{background:transparent!important}
+.table th{font:600 .7rem 'Barlow',sans-serif;text-transform:uppercase;letter-spacing:.09em;color:var(--ink3);border-bottom:1.5px solid var(--ink)}.table td{padding:.7rem .6rem;vertical-align:middle}
+.plate{font:500 .92rem 'IBM Plex Mono',monospace;background:#fff;border:1.5px solid var(--ink);padding:.05rem .45rem;border-radius:3px;letter-spacing:.06em;white-space:nowrap}
+.tag{font:600 .72rem 'Barlow',sans-serif;text-transform:uppercase;letter-spacing:.09em;white-space:nowrap}.tag::before{content:'';display:inline-block;width:.55rem;height:.55rem;margin-right:.4rem;background:var(--ink3)}
+.tag.APPROVED::before,.tag.ACTIVE::before,.tag.AVAILABLE::before,.tag.COMPLETED::before,.tag.CONFIRMED::before{background:var(--green)}
+.tag.PENDING::before,.tag.RESERVED::before{background:var(--amber)}.tag.REJECTED::before,.tag.REVOKED::before,.tag.OCCUPIED::before{background:var(--red)}
+/* lot view: painted bays on asphalt */
+.lot,#cv{background-color:var(--asphalt);border-radius:2px;position:relative}.lot{height:200px;overflow:auto}
+#cv{width:640px;max-width:100%;height:420px;overflow:hidden;touch-action:none;background-image:repeating-linear-gradient(0deg,transparent 0 9px,rgba(255,255,255,.05) 9px 10px)}
+.slot{position:absolute;width:76px;height:56px;display:grid;place-items:center;border:2px solid #f2efe6;color:#f2efe6;font:600 1.05rem 'Barlow Condensed',sans-serif;letter-spacing:.08em;cursor:pointer;user-select:none}
+.slot.AVAILABLE{background:rgba(47,158,99,.5)}.slot.RESERVED{background:var(--amber);color:var(--ink);border-color:var(--amber)}.slot.OCCUPIED{background:var(--red);border-color:var(--red);cursor:not-allowed}
+.slot.MAINTENANCE{background:repeating-linear-gradient(45deg,#5a5f64 0 6px,#3f4347 6px 12px);cursor:not-allowed}.slot.sel{outline:3px solid var(--amber);outline-offset:2px}.slot.off{opacity:.4}
+#cv .slot{cursor:grab}#map{height:300px}.map{height:220px}.leaflet-container{border-radius:2px}
+/* notices */
+#toasts{position:fixed;left:1.25rem;bottom:1.25rem;z-index:2000;display:flex;flex-direction:column;gap:.5rem;max-width:min(380px,calc(100vw - 2.5rem))}
+.dlg{border:0;border-top:5px solid var(--amber);padding:1.4rem 1.5rem 1.2rem;width:min(420px,92vw);background:var(--paper);color:var(--ink);box-shadow:0 12px 40px rgba(0,0,0,.35)}
+.dlg::backdrop{background:rgba(22,25,29,.55)}.dlg p{margin:0 0 .9rem;font-size:1.05rem}.dlg-b{display:flex;justify-content:flex-end;gap:.5rem;margin-top:1.1rem}
+.alert{border:0;border-left:5px solid;border-radius:0;color:var(--ink)}.alert-success{border-left-color:var(--green);background:#e4eee7}.alert-danger{border-left-color:var(--red);background:#f2e2df}
+/* landing */
+.hero{font:600 clamp(2.3rem,5vw,3.5rem)/.98 'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.01em;margin-bottom:1.2rem}.lede{max-width:34rem;color:var(--ink2);margin-bottom:1.6rem}
+.flow{counter-reset:s;list-style:none;padding:0;margin:0}.flow li{counter-increment:s;border-top:1px solid var(--rule);padding:.8rem 0;display:flex;gap:1rem}
+.flow li::before{content:counter(s,decimal-leading-zero);font:500 .85rem 'IBM Plex Mono',monospace;color:var(--ink3);padding-top:.15rem}
+@media print{body *{visibility:hidden}#qrp,#qrp *{visibility:visible}#qrp{position:absolute;left:0;top:0}}
+
+/* dashboard */
+.dh{display:flex;justify-content:space-between;align-items:flex-end;gap:1.5rem;flex-wrap:wrap;margin:2.4rem 0 2.4rem}
+.dh .date{font:500 .78rem 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.12em;color:var(--ink3)}
+.dh h1{font:600 clamp(2rem,4.5vw,2.9rem)/1.02 'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.01em;margin:.3rem 0 .45rem}.dh p{margin:0;color:var(--ink2)}
+.vhead,.vrow{display:grid;grid-template-columns:1.35fr 1fr 1.15fr 1.15fr;gap:.9rem;align-items:center}
+.vhead{font:600 .68rem 'Barlow',sans-serif;text-transform:uppercase;letter-spacing:.09em;color:var(--ink3);border-bottom:1.5px solid var(--ink);padding-bottom:.45rem}
+.vrow{padding:.9rem 0;border-bottom:1px solid var(--rule)}.vrow small{display:block;margin-top:.2rem}.vrow a{margin-left:.3rem;color:var(--ink);font-weight:600}
+@media(max-width:760px){.vhead{display:none}.vrow{grid-template-columns:1fr 1fr}}
+.qa{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--ink)}
+.qa a{display:flex;justify-content:space-between;align-items:center;padding:1rem .3rem;border-bottom:1px solid var(--rule);color:var(--ink);text-decoration:none}
+.qa a:nth-child(odd){padding-right:1.2rem;border-right:1px solid var(--rule)}.qa a:nth-child(even){padding-left:1.2rem}.qa a:hover{background:rgba(242,183,5,.2)}
+.qa b{display:block}.qa i{font-style:normal;font-size:1.2rem;color:var(--ink3)}.qa a:hover i{color:var(--ink)}
+.live{font:500 .68rem 'IBM Plex Mono',monospace;letter-spacing:.1em;color:var(--green);margin-left:.6rem;vertical-align:middle}.live::before{content:'';display:inline-block;width:.5rem;height:.5rem;background:var(--green);margin-right:.35rem}
+.occ-big b{font:600 4.2rem/1 'Barlow Condensed',sans-serif}.occ-big span{font:600 1.7rem 'Barlow Condensed',sans-serif;color:var(--ink3)}
+.occbar{display:flex;height:12px;background:var(--rule);margin:1rem 0 .4rem}.occbar i{display:block;height:100%}
+.occbar .AVAILABLE,.bay.AVAILABLE{background:var(--green)}.occbar .RESERVED,.bay.RESERVED{background:var(--amber)}.occbar .OCCUPIED,.bay.OCCUPIED{background:var(--red)}
+.occbar .MAINTENANCE,.bay.MAINTENANCE{background:repeating-linear-gradient(45deg,#8a8f94 0 3px,#b9bcbf 3px 6px)}
+.lvl-ok{color:var(--green)}.lvl-mid{color:#a57c00}.lvl-low{color:var(--red)}
+.lotrow{padding:.9rem 0 .5rem;border-top:1px solid var(--rule)}.lotrow:first-of-type{margin-top:1.4rem;border-top:1px solid var(--ink)}.lotrow small{display:block}
+.bays{display:flex;flex-wrap:wrap;gap:3px;margin:.55rem 0 .2rem}.bay{display:inline-block;width:16px;height:11px;border:1px solid rgba(0,0,0,.28)}
+.key{margin-top:1.1rem;font-size:.8rem;color:var(--ink3);display:flex;gap:.4rem;align-items:center;flex-wrap:wrap}.key .bay{margin-left:.5rem}
+
+/* =====================================================================
+   Motion layer: transitions & feedback. All of it respects
+   prefers-reduced-motion (see the media query at the end).
+   ===================================================================== */
+:root{--ease:cubic-bezier(.2,.8,.2,1);--st-av:#2e9d63;--st-re:#e0a100;--st-oc:#e0412f;--st-mt:#6b7280}
+@keyframes fxIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes shakeX{0%,100%{transform:translateX(0)}18%{transform:translateX(-7px)}36%{transform:translateX(6px)}54%{transform:translateX(-4px)}72%{transform:translateX(3px)}}
+@keyframes shimmer{to{transform:translateX(100%)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+.fx-in{animation:fxIn .38s var(--ease) both}
+.shake{animation:shakeX .42s ease both}
+.fx-bad{border-color:var(--red)!important;box-shadow:0 0 0 3px rgba(179,38,30,.18)!important}
+
+/* buttons */
+.btn{transition:background-color .18s,border-color .18s,color .18s,transform .12s,box-shadow .18s,opacity .2s}
+.btn:active:not(:disabled){transform:translateY(1px)}
+.btn.is-busy{position:relative;pointer-events:none;display:inline-flex;align-items:center;gap:.5rem;justify-content:center}
+.spin{width:.95em;height:.95em;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;animation:spin .7s linear infinite;flex:none}
+button.btn{cursor:pointer}
+
+/* toasts */
+#toasts{pointer-events:none}
+.toast-i{pointer-events:auto;position:relative;display:flex;align-items:center;gap:.65rem;background:var(--ink);color:var(--paper);padding:.7rem .6rem .7rem .85rem;font-size:.92rem;overflow:hidden;
+  box-shadow:0 8px 22px rgba(0,0,0,.28);animation:toastIn .42s var(--ease) both;transition:opacity .25s,transform .25s var(--ease)}
+.toast-i::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--green);transform-origin:top;animation:barGrow .45s var(--ease) .1s both}
+.toast-i.error::before{background:var(--red)}.toast-i.warn::before{background:var(--amber)}
+.toast-i.warn{animation:toastIn .42s var(--ease) both}
+.toast-i.out{opacity:0;transform:translateX(-24px)}
+.toast-i.bump{animation:toastBump .35s ease}
+.ti-m{flex:1;min-width:0;overflow-wrap:anywhere}
+.ti-ic{display:grid;place-items:center;flex:none;width:22px;height:22px}
+.ti-svg{width:22px;height:22px;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.toast-i.ok .ti-svg{stroke:#58d08f}.toast-i.error .ti-svg{stroke:#ff8a80}.toast-i.warn .ti-svg{stroke:var(--amber)}
+.ti-c{stroke-dasharray:70;stroke-dashoffset:70;animation:draw .5s ease-out .1s forwards}
+.ti-p{stroke-dasharray:24;stroke-dashoffset:24;animation:draw .35s ease-out .4s forwards}
+.toast-i.warn .ti-c{stroke-dasharray:60;stroke-dashoffset:60}
+.ti-x,.ti-a{background:none;border:0;color:inherit;cursor:pointer;font:inherit}
+.ti-x{opacity:.6;font-size:1.25rem;line-height:1;padding:.1rem .45rem;border-radius:2px}.ti-x:hover{opacity:1;background:rgba(255,255,255,.12)}
+.ti-a{font-weight:700;color:var(--amber);text-transform:uppercase;letter-spacing:.06em;font-size:.78rem;padding:.25rem .5rem}.ti-a:hover{background:rgba(255,255,255,.12)}
+@keyframes toastIn{from{opacity:0;transform:translateX(-36px)}to{opacity:1;transform:none}}
+@keyframes toastBump{40%{transform:scale(1.03)}}
+@keyframes barGrow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes draw{to{stroke-dashoffset:0}}
+.dlg{animation:dlgIn .22s var(--ease)}.dlg.closing{opacity:0;transform:translateY(6px);transition:opacity .14s,transform .14s}
+.dlg::backdrop{animation:fadeIn .22s}
+@keyframes dlgIn{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}}
+
+/* skeleton loading */
+.sk{position:relative;overflow:hidden;background:#e4e0d3;border-radius:2px}
+.sk::after{content:'';position:absolute;inset:0;transform:translateX(-100%);background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent);animation:shimmer 1.7s ease-in-out infinite}
+.sk-row{margin-bottom:.55rem}
+.sk-card{display:flex;flex-direction:column;gap:.55rem;padding:.9rem 0;border-top:1px solid var(--ink);margin-bottom:.5rem}
+.collapsing{transition:height .4s var(--ease),opacity .3s,margin .4s var(--ease),padding .4s var(--ease)}
+
+/* form feedback */
+.fld{position:relative}
+.fld .ok-ic{position:absolute;right:.7rem;top:.7rem;width:18px;height:18px;opacity:0;transform:scale(.4);transition:opacity .2s,transform .3s var(--ease);pointer-events:none}
+.fld .ok-ic svg{width:18px;height:18px;fill:none;stroke:var(--green);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:24;stroke-dashoffset:24;transition:stroke-dashoffset .35s ease .08s}
+.fld.ok .ok-ic{opacity:1;transform:none}.fld.ok .ok-ic svg{stroke-dashoffset:0}
+.fld.ok .form-control{border-color:var(--green);padding-right:2.3rem}
+.fld.bad .form-control{border-color:var(--red)}
+.fld .hint{font-size:.8rem;color:var(--red);max-height:0;opacity:0;overflow:hidden;transition:max-height .28s var(--ease),opacity .25s,margin .25s}
+.fld.bad .hint{max-height:3.2rem;opacity:1;margin-top:.3rem}
+.form-control,.form-select{transition:border-color .2s,box-shadow .2s,background-color .2s}
+.plate-col{transition:flex .38s var(--ease),max-width .38s var(--ease),opacity .25s,padding .38s var(--ease);min-width:0}
+.plate-col.off{flex:0 0 0%!important;max-width:0;padding-left:0!important;padding-right:0!important;opacity:0;overflow:hidden;pointer-events:none}
+
+/* vehicle cards */
+.vc{border-top:1px solid var(--rule);position:relative;overflow:hidden}.vc:first-child{border-top:1px solid var(--ink)}.vc:last-child{border-bottom:1px solid var(--rule)}
+.vc-h{all:unset;box-sizing:border-box;display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr 28px;gap:.9rem;align-items:center;width:100%;padding:.9rem .4rem;cursor:pointer;transition:background-color .2s}
+.vc-h:hover{background:rgba(242,183,5,.14)}.vc-h:focus-visible{outline:3px solid var(--amber);outline-offset:-3px}
+.vc-sum{color:var(--ink2);font-size:.88rem}
+.chev{width:20px;height:20px;fill:none;stroke:var(--ink2);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .35s var(--ease)}
+.vc.open .chev{transform:rotate(180deg)}
+.vc-b{display:grid;grid-template-rows:0fr;transition:grid-template-rows .38s var(--ease)}.vc.open .vc-b{grid-template-rows:1fr}
+.vc-b>div{overflow:hidden;min-height:0}
+.vc-in{padding:.2rem .4rem 1.1rem;opacity:0;transform:translateY(-6px);transition:opacity .3s,transform .38s var(--ease)}.vc.open .vc-in{opacity:1;transform:none;transition-delay:.06s}
+.vc-dl{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem;margin:0 0 1rem}.vc-dl dt{font:600 .68rem 'Barlow',sans-serif;text-transform:uppercase;letter-spacing:.09em;color:var(--ink3)}.vc-dl dd{margin:0;font-weight:500}
+.vc-pass,.vc-hist{display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;padding:.65rem 0;border-top:1px solid var(--rule)}.vc-hist{display:block}
+.vc-hl{margin-top:.4rem;min-height:22px}.vc-row{display:grid;grid-template-columns:1fr 1.6fr auto;gap:.8rem;padding:.2rem 0;font-size:.9rem}
+.vc-act{padding-top:.6rem;border-top:1px solid var(--rule)}
+.vc-done{position:absolute;inset:0;background:var(--paper);display:flex;align-items:center;gap:.9rem;padding:0 .6rem;animation:fadeIn .3s}.vc-done small{display:block;color:var(--ink3)}
+.vc.done{min-height:64px}
+@media(max-width:760px){.vc-h{grid-template-columns:1fr 1fr 28px}.vc-sum{display:none}.vc-dl{grid-template-columns:1fr 1fr}}
+
+/* confirmation check */
+.ck-big{width:42px;height:42px;flex:none;fill:none;stroke:var(--green);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.ck-c{stroke-dasharray:150;stroke-dashoffset:150;animation:draw .6s ease-out forwards}.ck-p{stroke-dasharray:50;stroke-dashoffset:50;animation:draw .4s ease-out .45s forwards}
+
+/* lots / reservation cards */
+.lotc{transition:background-color .25s,box-shadow .25s,transform .25s var(--ease);cursor:pointer;padding-left:.5rem;padding-right:.5rem}
+.lotc:hover{background:rgba(242,183,5,.12)}.lotc.sel{background:rgba(242,183,5,.22);box-shadow:inset 4px 0 0 var(--amber)}
+.lot-btns{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.5rem}
+.lot-meter,.spot-m{height:6px;background:var(--rule);margin:.4rem 0}.lot-meter i,.spot-m i{display:block;height:100%;background:var(--st-av);transition:width .6s var(--ease),background-color .4s}
+.lot-meter i.low,.spot-m i.low{background:var(--st-re)}.lot-meter i.full,.spot-m i.full{background:var(--st-oc)}
+.cx{margin-bottom:.5rem}.cx .card{border-top:1px solid var(--ink)}
+.rc-row{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}.rc-info{flex:1;min-width:200px}.rc-info small{display:block;color:var(--ink3);transition:color .3s}
+.ring{position:relative;width:56px;height:56px;flex:none}.ring svg{width:56px;height:56px;transform:rotate(-90deg)}
+.ring circle{fill:none;stroke-width:4}.rg-bg{stroke:var(--rule)}.rg-fg{stroke:var(--green);stroke-linecap:round;transition:stroke .5s}
+.rg-t{position:absolute;inset:0;display:grid;place-items:center;font:500 .78rem 'IBM Plex Mono',monospace}
+.rc.warn .rg-fg{stroke:var(--amber)}.rc.warn .rc-sub{color:#a57c00}.rc.warn .ring{animation:ringPulse 1.6s ease-in-out infinite}
+.rc.expired .rg-fg{stroke:var(--red)}.rc.expired .rc-sub{color:var(--red)}.rc.expired{opacity:.65;transition:opacity .4s}
+@keyframes ringPulse{50%{transform:scale(1.06)}}
+.rc-ok{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}.rc-ok>div{flex:1;min-width:180px}.rc-ok small{display:block;color:var(--ink3)}
+.rc.confirmed{background:rgba(30,122,76,.1);transition:background-color .5s}
+
+/* slot status transitions */
+#layout .parking-slot{transition:transform .12s,border-color .5s var(--ease),background-color .5s var(--ease),box-shadow .5s var(--ease),opacity .4s}
+#layout .parking-slot .parking-slot-status-dot{transition:background-color .5s var(--ease),color .5s var(--ease),transform .3s var(--ease);background:currentColor}
+#layout .parking-slot.status-available .parking-slot-status-dot{color:var(--st-av);background:var(--st-av)}
+#layout .parking-slot.status-reserved .parking-slot-status-dot{color:var(--st-re);background:var(--st-re)}
+#layout .parking-slot.status-occupied .parking-slot-status-dot{color:var(--st-oc);background:var(--st-oc)}
+#layout .parking-slot.status-maintenance .parking-slot-status-dot{color:var(--st-mt);background:var(--st-mt)}
+#layout .parking-slot.status-reserved{background:rgba(224,161,0,.12)}#layout .parking-slot.status-occupied{background:rgba(224,65,47,.1)}
+#layout .parking-slot.reserving{pointer-events:none}#layout .parking-slot.reserving .parking-slot-status-dot{animation:ringPulse .7s infinite;background:var(--st-re);color:var(--st-re)}
+.parking-status-dot.available{color:var(--st-av);background:var(--st-av)}.parking-status-dot.reserved{color:var(--st-re);background:var(--st-re)}.parking-status-dot.occupied{color:var(--st-oc);background:var(--st-oc)}
+.flip .parking-slot-status-dot{animation:dotPop .55s var(--ease)}
+@keyframes dotPop{0%{transform:scale(.4)}60%{transform:scale(1.7)}100%{transform:scale(1)}}
+.parking-slot.pulse{animation:pulseAv 1s ease-out 2}
+.bay{transition:background-color .6s var(--ease),border-color .6s var(--ease),transform .3s var(--ease)}.bay.flip{animation:bayPop .55s var(--ease)}
+.bay.pulse{animation:pulseAvS 1s ease-out 2}
+@keyframes bayPop{50%{transform:scale(1.7)}}
+@keyframes pulseAv{from{box-shadow:0 0 0 0 rgba(46,157,99,.6)}to{box-shadow:0 0 0 14px rgba(46,157,99,0)}}
+@keyframes pulseAvS{from{box-shadow:0 0 0 0 rgba(46,157,99,.7)}to{box-shadow:0 0 0 8px rgba(46,157,99,0)}}
+.occbar i{transition:width .7s var(--ease)}.occ-big b{transition:color .4s}
+
+/* map */
+#map{position:relative;height:380px;overflow:hidden}
+.lot-pin-wrap{background:none;border:0}
+.lot-pin{width:34px;height:34px;margin:2px;border-radius:50%;display:grid;place-items:center;background:#fff;border:3px solid var(--c,#64748b);color:var(--ink);font:700 .9rem 'Barlow',sans-serif;box-shadow:0 2px 6px rgba(0,0,0,.35);
+  transition:transform .4s var(--ease),box-shadow .4s,background-color .4s,border-color .4s;cursor:pointer}
+.lot-pin.low{background:#fff4d1}.lot-pin.full{background:#e5e5e5;color:#777}
+.lot-pin:hover{transform:scale(1.12)}.lot-pin.sel{transform:scale(1.4);box-shadow:0 0 0 4px rgba(242,183,5,.55),0 4px 10px rgba(0,0,0,.4);z-index:10}
+.zone-ring{fill:#f2b705;fill-opacity:.18;stroke:#f2b705;stroke-width:2;animation:zoneP 2.2s ease-in-out infinite}
+@keyframes zoneP{50%{fill-opacity:.36;stroke-opacity:.5}}
+.route-line{stroke-dasharray:none}
+.spot-card{position:absolute;z-index:900;width:260px;max-width:calc(100% - 16px);background:var(--paper);border-top:4px solid var(--amber);padding:.7rem .85rem .85rem;box-shadow:0 12px 30px rgba(0,0,0,.35);
+  transform-origin:var(--ox,50%) var(--oy,100%);animation:spotIn .5s var(--ease) both;font-size:.9rem}
+.spot-card.closing{animation:spotOut .22s ease-in forwards}
+.spot-card::after{content:'';position:absolute;left:var(--ox,50%);bottom:-8px;width:14px;height:14px;background:var(--paper);transform:translateX(-50%) rotate(45deg);box-shadow:3px 3px 5px rgba(0,0,0,.12)}
+.spot-card.below::after{bottom:auto;top:-12px;box-shadow:-2px -2px 4px rgba(0,0,0,.1)}
+.spot-n{display:block;font:600 1.2rem 'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.04em;padding-right:1.4rem}
+.spot-x{position:absolute;right:.35rem;top:.2rem;border:0;background:none;font-size:1.4rem;line-height:1;cursor:pointer;color:var(--ink2);padding:.1rem .4rem}.spot-x:hover{color:var(--ink)}
+.spot-s{margin-bottom:.6rem}.spot-b{display:flex;flex-wrap:wrap;gap:.35rem}.spot-b .btn{padding:.25rem .6rem;font-size:.8rem}
+@keyframes spotIn{from{opacity:0;transform:scale(.15)}to{opacity:1;transform:none}}
+@keyframes spotOut{to{opacity:0;transform:scale(.3)}}
+#steps .card{overflow:hidden}
+
+/* layout editor */
+.editor-slot{transition:left .3s var(--ease),top .3s var(--ease),transform .25s var(--ease),box-shadow .25s,opacity .3s,background-color .45s,border-color .45s}
+.editor-slot.dragging{transition:box-shadow .2s,background-color .45s;z-index:30;box-shadow:0 14px 22px rgba(0,0,0,.45);cursor:grabbing!important;opacity:.96}
+.editor-slot.enter{animation:slotIn .4s var(--ease)}
+.editor-slot.removing{transform:scale(.4)!important;opacity:0!important}
+@keyframes slotIn{from{opacity:0;transform:scale(.4)}}
+.drop-hint{position:absolute;z-index:1;pointer-events:none;border:2px dashed var(--amber);background:rgba(242,183,5,.22);transition:left .18s var(--ease),top .18s var(--ease),border-color .2s,background-color .2s,opacity .2s}
+.drop-hint.swap{border-color:#4aa3ff;background:rgba(74,163,255,.25)}
+.drop-hint.bad{opacity:0}
+#cv.drag-on .editor-slot:not(.dragging){cursor:default}
+#cv.invalid{outline:3px solid var(--red);outline-offset:-3px;animation:shakeX .4s}
+#cv{transition:outline-color .2s}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-delay:0s!important;animation-iteration-count:1!important;transition-duration:.001ms!important;transition-delay:0s!important;scroll-behavior:auto!important}
+  .sk::after{display:none}
+}
+
+/* ===== "Find parking" start-the-car button ===== */
+.drive{position:relative;display:inline-block}
+.drive-btn{position:relative;white-space:nowrap}
+.drive-btn .dl{display:block;transition:opacity .2s ease,transform .26s cubic-bezier(.2,.8,.2,1)}
+.drive-btn .dl-b{font-size:.92em;position:absolute;left:0;right:0;top:50%;text-align:center;opacity:0;transform:translateY(-30%)}
+.drive.go .dl-a{opacity:0;transform:translateY(-45%)}
+.drive.go .dl-b{opacity:1;transform:translateY(-50%)}
+.drive-btn[aria-busy=true]{cursor:progress}
+/* The lane is the strip just above the button; the car never leaves it (clipped at the button's edges). */
+.drive-lane{position:absolute;left:0;right:0;bottom:calc(100% - 2px);height:22px;overflow:hidden;pointer-events:none}
+.car{position:absolute;left:14px;bottom:0;width:40px;height:auto;overflow:visible;transform:translateX(0);will-change:transform}
+.car .cb,.car .wt{fill:var(--ink)}.car .gl{fill:var(--paper)}.car .tl{fill:var(--ink3)}
+.car .hl{fill:var(--rule);transition:fill .25s ease}
+.car .beam{fill:var(--amber);opacity:0;transition:opacity .3s ease}
+.car .sp path{stroke:var(--paper);stroke-width:1;stroke-linecap:round;fill:none}
+.car .wt{stroke:var(--paper);stroke-width:.8}
+.car .wh .sp{transform-box:fill-box;transform-origin:center}
+.car .tr path{stroke:var(--ink3);stroke-width:1;stroke-linecap:round;fill:none;opacity:0}
+.car .px circle{fill:var(--ink3);opacity:0;transform-box:fill-box;transform-origin:center}.car .px circle:last-child{fill:var(--paper)}
+.car .bd{transform-box:fill-box;transform-origin:center bottom}
+/* engine start: lights, a faint vibration, one puff at a time */
+.drive-btn:hover~.drive-lane .hl,.drive-btn:focus-visible~.drive-lane .hl,.drive.go .hl{fill:var(--amber)}
+.drive-btn:hover~.drive-lane .beam,.drive-btn:focus-visible~.drive-lane .beam{opacity:.38}.drive.go .beam{opacity:.5}
+@media (prefers-reduced-motion:no-preference){
+ .drive-btn:hover~.drive-lane .bd,.drive-btn:focus-visible~.drive-lane .bd{animation:carIdle .16s linear infinite}
+ .drive-btn:hover~.drive-lane .px circle,.drive-btn:focus-visible~.drive-lane .px circle{animation:carPuff 1.3s ease-out infinite}
+ .drive-btn:hover~.drive-lane .px circle:last-child,.drive-btn:focus-visible~.drive-lane .px circle:last-child{animation-delay:.12s}
+ .drive.go .car{animation:carGo .84s cubic-bezier(.5,0,.85,.4) forwards}
+ .drive.go .bd{animation:carIdle .09s linear infinite}
+ .drive.go .sp{animation:carSpin .22s linear infinite}
+ .drive.go .tr path{animation:carTrail .84s ease-out forwards}
+ .drive.go .tr path:nth-child(2){animation-delay:.04s}.drive.go .tr path:nth-child(3){animation-delay:.08s}
+}
+@keyframes carIdle{0%,100%{transform:translateY(0)}50%{transform:translateY(-.5px)}}
+@keyframes carPuff{0%{opacity:0;transform:translate(0,0) scale(.5)}15%{opacity:.5}100%{opacity:0;transform:translate(-9px,-4px) scale(1.6)}}
+@keyframes carGo{0%{transform:translateX(0)}14%{transform:translateX(-2.5px)}100%{transform:translateX(var(--run,300px))}}
+@keyframes carSpin{to{transform:rotate(360deg)}}
+@keyframes carTrail{0%{opacity:0;transform:translateX(0)}35%{opacity:.55}100%{opacity:0;transform:translateX(-6px)}}
+@media (prefers-reduced-motion:reduce){.drive-btn .dl{transition:none}}
+
+/* ===== Restrained hover + scroll motion (all disabled under prefers-reduced-motion) ===== */
+.rv{opacity:0}
+.rv.in{opacity:1;animation:rvIn .55s var(--ease) var(--rd,0ms) backwards}
+@keyframes rvIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:no-preference){
+ /* buttons: a 1px lift on hover, a small press on click */
+ .btn:not(.drive-btn):not(:disabled){transition:transform .18s var(--ease),background-color .18s,border-color .18s,color .18s}
+ .btn:not(.drive-btn):not(:disabled):hover{transform:translateY(-1px)}
+ .btn:not(.drive-btn):not(:disabled):active{transform:translateY(0) scale(.98)}
+ /* top bar: underline fades in, logo mark tilts */
+ .topbar nav a{transition:color .2s,border-color .25s}
+ .topbar nav a:not(.on):hover{border-bottom-color:rgba(242,183,5,.55)}
+ .pmark{transition:transform .3s var(--ease)}.brand:hover .pmark{transform:rotate(-8deg) scale(1.06)}
+ /* quick actions: arrow nudges forward */
+ .qa a{transition:background-color .2s}.qa i{display:inline-block;transition:transform .25s var(--ease),color .2s}.qa a:hover i{transform:translateX(5px)}
+ /* lists and cards: amber edge slides in */
+ .lotc{transition:background-color .25s,box-shadow .25s var(--ease),transform .25s var(--ease)}
+ .lotc:not(.sel):hover{box-shadow:inset 3px 0 0 var(--amber)}
+ .vc-h{transition:background-color .2s}
+ #pane .table tr>*{transition:background-color .18s}
+ /* parking bays and links */
+ #layout .parking-slot{transition:transform .2s var(--ease),background-color .25s,border-color .25s,box-shadow .25s}
+ #layout .parking-slot.status-available:hover{transform:translateY(-2px)}
+ #pane a:not(.btn){text-underline-offset:.2em;text-decoration-color:rgba(22,25,29,.35);transition:text-decoration-color .2s}
+ #pane a:not(.btn):hover{text-decoration-color:currentColor}
+}
+#pane .table tr:hover>td{background-color:rgba(242,183,5,.12)}
+@media (prefers-reduced-motion:reduce){.rv,.rv.in{opacity:1;animation:none}}
+
+/* ===== Parking-themed motion ===== */
+/* shared: a car used outside the button lane is a plain inline block */
+.road-car .car,.bay-car .car,.leave-car .car{position:static;display:block;width:40px;transform:none;animation:none}
+.lit .hl{fill:var(--amber)}.lit .beam{opacity:.45}.braking .tl{fill:var(--red)}
+/* hero road: the car pulls up beside the P sign */
+.road{position:relative;height:30px;margin-top:2.2rem;max-width:34rem}
+.road::after{content:'';position:absolute;left:0;right:0;bottom:0;border-top:2px dashed var(--rule)}
+.road-p{position:absolute;right:0;bottom:3px;width:24px;height:24px;display:grid;place-items:center;background:var(--amber);color:var(--ink);border:1.5px solid var(--ink);border-radius:3px;font:700 .95rem 'Barlow',sans-serif}
+.road-car{position:absolute;bottom:1px;left:calc(100% - 82px)}
+.road-car .car .sp{transform-box:fill-box;transform-origin:center}
+.road-car.arrived .tl{fill:var(--ink3)}
+/* bay drive-in */
+.parking-slot.has-car{position:relative;overflow:hidden}
+.parking-slot.has-car .parking-slot-status-dot{opacity:0}
+.bay-car{position:absolute;left:calc(50% - 20px);bottom:5px}
+.bay-car .sp{transform-box:fill-box;transform-origin:center}
+/* leaving: the car exits the session card on the right */
+.card.leaving{position:relative;overflow:hidden}
+.leave-car{position:absolute;left:0;bottom:2px}
+.leave-car .sp{transform-box:fill-box;transform-origin:center}
+.occbar i{transform-origin:left center}
+@media (prefers-reduced-motion:no-preference){
+ .road-car{animation:roadDrive 2.6s cubic-bezier(.22,.7,.2,1) .5s backwards}
+ .road-car .sp{animation:carSpin .24s linear .5s 9}
+ .road-car:not(.arrived) .hl{fill:var(--amber)}.road-car:not(.arrived) .beam{opacity:.4}
+ .road-car .tl{animation:brake .5s ease-out 2.4s 2 backwards}
+ .bay-car{animation:bayIn .95s cubic-bezier(.2,.8,.2,1) both}
+ .bay-car .sp{animation:carSpin .24s linear 3}
+ .bay-car .hl{animation:lightsOff .2s linear .8s forwards}.bay-car .beam{animation:beamOff .2s linear .8s forwards}
+ .bay-car .tl{animation:brake .4s ease-out .55s 2}
+ .leave-car{animation:carLeave .95s cubic-bezier(.5,0,.85,.4) forwards}
+ .leave-car .sp{animation:carSpin .2s linear infinite}
+ .occbar i{animation:barGrow .9s var(--ease) backwards}.occbar i:nth-child(2){animation-delay:.08s}.occbar i:nth-child(3){animation-delay:.16s}.occbar i:nth-child(4){animation-delay:.24s}
+}
+@keyframes roadDrive{from{left:-50px}to{left:calc(100% - 82px)}}
+@keyframes bayIn{from{transform:translateX(-120px)}to{transform:translateX(0)}}
+@keyframes carLeave{0%{transform:translateX(0)}12%{transform:translateX(-3px)}100%{transform:translateX(calc(var(--run,300px) + 20px))}}
+@keyframes brake{0%,100%{fill:var(--ink3)}40%{fill:var(--red)}}
+@keyframes lightsOff{to{fill:var(--rule)}}@keyframes beamOff{to{opacity:0}}
+@keyframes barGrow{from{transform:scaleX(0)}to{transform:scaleX(1)}}

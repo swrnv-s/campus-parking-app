@@ -1,0 +1,12 @@
+const bcrypt=require('bcrypt'),QR=require('qrcode'),crypto=require('crypto');
+const {User,Vehicle,Pass,Building,Lot,Slot,Reservation,Session,Settings,getSettings,norm}=require('../models');
+const {err,w}=require('../utils/http');const {me}=require('../middleware/auth');const {id}=require('../middleware/validation');
+const {ELIGIBLE}=require('../config/constants');const {hav,walkMin}=require('../utils/distance');
+const {availability}=require('../services/availabilityService');const {walkingRoute}=require('../services/routingService');
+exports.postPasses=w(async(q,r)=>{const u=await me(q),s=await getSettings();
+ const v=await Vehicle.findOne({_id:id(q.body.vehicleId),userId:u._id,active:true});if(!v)throw err(404,'Vehicle not found');
+ if(v.approvalStatus!=='APPROVED')throw err(400,'Vehicle not approved');
+ if(await Pass.exists({vehicleId:v._id,status:'ACTIVE',expiresAt:{$gt:new Date()}}))throw err(400,'Active pass exists');
+ const hrs=u.userType==='GUEST'?s.guestPassValidityHours:s.parkingPassValidityHours,now=new Date();
+ r.json(await Pass.create({userId:u._id,vehicleId:v._id,passType:u.userType==='GUEST'?'GUEST':'PARKING',issuedAt:now,expiresAt:new Date(+now+hrs*36e5)}));});
+exports.getPasses=w(async(q,r)=>{const u=await me(q);r.json(await Pass.find(u.userType==='ADMIN'?{}:{userId:u._id}).populate('vehicleId','vehicleNumber').sort('-createdAt'));});

@@ -1,0 +1,1 @@
+module.exports={ELIGIBLE:{STUDENT:['CYCLE'],FACULTY:['TWO_WHEELER','FOUR_WHEELER'],GUEST:['TWO_WHEELER','FOUR_WHEELER'],ADMIN:['CYCLE','TWO_WHEELER','FOUR_WHEELER']}}; // extend eligibility rules here

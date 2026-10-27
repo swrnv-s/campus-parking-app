@@ -1,0 +1,14 @@
+const router=require('express').Router();const {auth,admin}=require('../middleware/auth');
+const rateLimit=require('express-rate-limit');const lim=rateLimit({windowMs:6e4,max:20});
+const c=require('../controllers/parkingController');
+router.get('/buildings',auth,c.getBuildings);
+router.get('/parking/lots',auth,c.getParkingLots);
+router.get('/parking/lots/:id/slots',auth,c.getParkingLotsIdSlots);
+router.get('/parking/route',auth,c.getParkingRoute);
+router.get('/parking/availability',auth,c.getParkingAvailability);
+router.get('/parking/lots/:id/availability',auth,c.getParkingLotsIdAvailability);
+router.get('/parking/find',auth,c.getParkingFind);
+router.get('/parking/sessions',auth,c.getParkingSessions);
+router.get('/parking/sessions/active',auth,c.getParkingSessionsActive);
+router.post('/parking/sessions/:id/leave',auth,c.postParkingSessionsIdLeave);
+module.exports=router;

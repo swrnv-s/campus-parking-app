@@ -1,0 +1,24 @@
+{
+ "name": "campus-parking",
+ "version": "1.0.0",
+ "scripts": {
+  "start": "node server.js",
+  "seed": "node scripts/seed.js",
+  "test:e2e": "node scripts/e2e.js",
+  "create-admin": "node scripts/create-admin.js",
+  "repair:vehicles": "node scripts/repair-vehicle-index.js",
+  "repair:parking": "node scripts/repair-parking-state.js"
+ },
+ "dependencies": {
+  "bcrypt": "^5.1.1",
+  "bootstrap": "5.3.3",
+  "connect-mongo": "^5.1.0",
+  "express": "^4.19.2",
+  "express-rate-limit": "^7.4.0",
+  "express-session": "^1.18.0",
+  "jquery": "3.7.1",
+  "leaflet": "1.9.4",
+  "mongoose": "^8.5.0",
+  "qrcode": "^1.5.4"
+ }
+}

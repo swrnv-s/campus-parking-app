@@ -1,0 +1,11 @@
+const router=require('express').Router();
+router.use(require('../middleware/expiry'));
+router.use(require('./auth'));
+router.use(require('./vehicles'));
+router.use(require('./passes'));
+router.use(require('./reservations'));
+router.use(require('./qr'));
+router.use(require('./admin'));
+router.use(require('./statistics'));
+router.use(require('./parking'));
+module.exports=router;
